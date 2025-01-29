@@ -1,4 +1,4 @@
-```markdown
+
 # Next.js and Express Project
 
 ## Steps to Run the Project
@@ -8,11 +8,9 @@
 ```bash
 git clone https://github.com/your-username/your-repo.git
 cd your-repo
-```
 
-### 2. Install Dependencies
+2. Install Dependencies
 
-```bash
 npm install
 ```
 
@@ -45,4 +43,3 @@ npm run dev
 
 - **Node.js**: v14.x or higher
 - **npm**: v7.x or higher
-```
