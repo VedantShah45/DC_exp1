@@ -38,7 +38,7 @@ npm run dev
 - To run **only the backend** (Express.js):
 
   ```bash
-  npm run dev:backend
+  node index.js
   ```
 
 ## Development Environment
