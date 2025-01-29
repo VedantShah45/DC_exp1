@@ -32,7 +32,7 @@ npm run dev
 - To run **only the frontend** (Next.js):
 
   ```bash
-  npm run dev:frontend
+  npm run dev
   ```
 
 - To run **only the backend** (Express.js):
