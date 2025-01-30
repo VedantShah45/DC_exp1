@@ -1,0 +1,23 @@
+{
+  "name": "dc_exp1",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "client":"cd client && npm run dev",
+    "server":"cd server && node server.js",
+    "db":"mongod --dbpath ./db"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VedantShah45/DC_exp1.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/VedantShah45/DC_exp1/issues"
+  },
+  "homepage": "https://github.com/VedantShah45/DC_exp1#readme",
+  "description": ""
+}

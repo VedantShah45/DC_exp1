@@ -7,7 +7,7 @@ import AuthModal from "./Auth";
 const Hero = () => {
   const user = localStorage.getItem("user");
   const router = useRouter();
-  const [showModal] = useState(user?false:true);
+  const [showModal,setShowModal] = useState(user?false:true);
 
   return (
     <section className="relative bg-gradient-to-r from-blue-500 to-indigo-600 text-white h-[92vh] flex items-center justify-center">
@@ -22,7 +22,7 @@ const Hero = () => {
           <div className="mt-8 flex justify-center space-x-4">
           {
             showModal?
-              <AuthModal />
+              <AuthModal setShowModal={setShowModal}/>
               :
               <button
                 onClick={()=>router.push('get-started')}
@@ -33,7 +33,7 @@ const Hero = () => {
                   }
           <Link
             href="/learn-more"
-            className="px-6 py-3 text-blue-600 border border-blue-600 hover:bg-blue-100 dark:hover:bg-gray-800 rounded-lg text-lg transition"
+            className="px-6 py-3 text-white border border-blue-600 hover:text-blue-500 hover:bg-blue-100 dark:hover:bg-gray-800 rounded-lg text-lg transition"
           >
             Learn More
           </Link>
