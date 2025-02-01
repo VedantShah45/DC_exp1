@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Button } from "@/components/ui/button";
 import { Eye, EyeOff } from "lucide-react";
 import { toast } from "react-toastify";
+import axios from "axios";
 
 export type authForm = {
   fullname?: string;
@@ -21,7 +22,9 @@ const AuthModal = ({ setShowModal } : { setShowModal : Dispatch<SetStateAction<b
   const handleSubmit = async (e:React.FormEvent) => {
     try {
       e.preventDefault();
-      toast.success("Form filled!")
+      const res = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL_DEV}/data`,form);
+      toast.success(res.data.message);
+      // toast.success("Form filled!")
       setShowModal(false)
     } catch (error) {
       toast.error(error as string);

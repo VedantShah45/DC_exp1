@@ -6,10 +6,10 @@ import dotenv from "dotenv"
 dotenv.config()
 
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5000;
 
 const corsOptions = {
-  origin: 'http://your-frontend-domain.com', 
+  origin: 'http://localhost:3000', 
   methods: 'GET,POST,PUT,DELETE',
   allowedHeaders: 'Content-Type,Authorization', 
   credentials: true, 
@@ -28,8 +28,8 @@ app.get('/', (req, res) => {
 
 // Example of a POST route
 app.post('/data', (req, res) => {
-  const { name, age } = req.body;
-  res.json({ message: `Hello, ${name}. You are ${age} years old.` });
+  const { email } = req.body;
+  res.json({ message: `Hello, ${email}.` });
 });
 
 // Start the server
