@@ -2,6 +2,7 @@
 import express from 'express';
 import cors from 'cors'; 
 import dotenv from "dotenv"
+import { dbConnect } from './db/dbConnect.ts';
 
 dotenv.config()
 
@@ -34,5 +35,6 @@ app.post('/data', (req, res) => {
 
 // Start the server
 app.listen(port, () => {
+  dbConnect();
   console.log(`Server is running on http://localhost:${port}`);
 });
