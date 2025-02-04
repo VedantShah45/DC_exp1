@@ -7,6 +7,7 @@ import { Button } from "@/components/ui/button";
 import { Eye, EyeOff } from "lucide-react";
 import { toast } from "react-toastify";
 import axios from "axios";
+import { useRouter } from "next/navigation";
 
 export type authForm = {
   fullname?: string;
@@ -18,16 +19,23 @@ const AuthModal = ({ setShowModal } : { setShowModal : Dispatch<SetStateAction<b
   const [isLogin, setIsLogin] = useState(true);
   const [showPassword, setShowPassword] = useState(false);
   const [form, setForm] = useState<authForm>({ email: "", password: "" });
+  const router = useRouter();
 
   const handleSubmit = async (e:React.FormEvent) => {
     try {
       e.preventDefault();
-      const res = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL_DEV}/data`,form);
+      console.log(form);      
+      const res = await axios.post(`${process.env.NEXT_PUBLIC_SERVER_URL_DEV}/api/auth/${isLogin?'login':'signup'}`,form);
       toast.success(res.data.message);
-      // toast.success("Form filled!")
+      localStorage.setItem("user", JSON.stringify(res.data.user));
+      router.push('/get-started')
       setShowModal(false)
     } catch (error) {
-      toast.error(error as string);
+      if (axios.isAxiosError(error) && error.response) {
+        toast.error(error.response.data.error);
+      } else {
+        toast.error("An unexpected error occurred");
+      }
     }
   };
 

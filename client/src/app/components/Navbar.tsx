@@ -7,7 +7,8 @@ import { Dialog, DialogTrigger, DialogContent, DialogTitle, DialogDescription } 
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-
+  const user = localStorage.getItem("user");
+  const [isUser,setIsUser] = useState(user?true:false);
   return (
     <nav className="bg-white h-[8vh] dark:bg-gray-900 shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -33,6 +34,17 @@ const Navbar = () => {
             <Link href="/contact" className="text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-all">
               Contact
             </Link>
+
+            {isUser && <Link
+              onClick={()=>{
+                localStorage.removeItem("user")
+                setIsUser(false)
+              }}
+              href="/"
+              className="text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-all"
+            >
+              Logout
+            </Link>}
           </div>
 
           {/* Mobile Menu Button */}
@@ -87,6 +99,15 @@ const Navbar = () => {
                         className="text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-all"
                       >
                         Contact
+                      </Link>
+                    </li>
+                    <li>
+                      <Link
+                        onClick={()=>localStorage.removeItem("user")}
+                        href="/"
+                        className="text-gray-700 dark:text-gray-300 hover:text-blue-600 transition-all"
+                      >
+                        Logout
                       </Link>
                     </li>
                   </ul>
