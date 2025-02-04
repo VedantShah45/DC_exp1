@@ -3,6 +3,8 @@ import express from 'express';
 import cors from 'cors'; 
 import dotenv from "dotenv"
 import { dbConnect } from './db/dbConnect.ts';
+import 'colors';
+import authRouter from './routes/userAuthRoutes/auth.router.ts';
 
 dotenv.config()
 
@@ -22,19 +24,11 @@ app.use(cors(corsOptions));
 // Middleware to parse JSON bodies
 app.use(express.json());
 
-// Sample route
-app.get('/', (req, res) => {
-  res.send('Hello, World!');
-});
-
-// Example of a POST route
-app.post('/data', (req, res) => {
-  const { email } = req.body;
-  res.json({ message: `Hello, ${email}.` });
-});
+// Routes
+app.use('/api/auth', authRouter);
 
 // Start the server
 app.listen(port, () => {
   dbConnect();
-  console.log(`Server is running on http://localhost:${port}`);
+  console.log(`Server is running on http://localhost:${port}`.bgBlue.bold);
 });

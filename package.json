@@ -4,9 +4,9 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "client":"cd client && npm run dev",
-    "server":"cd server && node index.ts",
-    "db":"mongod --dbpath ./db"
+    "client": "cd client && npm run dev",
+    "server": "cd server && cd src && nodemon index.ts",
+    "db": "mongod --dbpath ./db"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,12 @@
     "url": "https://github.com/VedantShah45/DC_exp1/issues"
   },
   "homepage": "https://github.com/VedantShah45/DC_exp1#readme",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "postman": "^0.2.0",
+    "react-pdf": "^9.2.1"
+  },
+  "devDependencies": {
+    "@types/cors": "^2.8.17"
+  }
 }

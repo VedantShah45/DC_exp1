@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+      "target": "es2022",
+      "module": "commonjs",
+      "outDir": "./dist",
+      "rootDir": "./src",
+      "strict": true,
+      "esModuleInterop": true,
+      "typeRoots": ["./src/types", "./node_modules/@types"],
+      "types": ["node", "express"],
+      "skipLibCheck": true,
+      "allowImportingTsExtensions": true,
+      "noEmit": true,
+      "forceConsistentCasingInFileNames": true,
+      "moduleResolution": "node",
+      "resolveJsonModule": true,
+      "baseUrl": "./src",
+      "allowSyntheticDefaultImports": true,
+      "paths": {
+        "@/*": ["./*"],
+        "@controllers/*": ["src/controllers/*"],
+        "@models/*": ["src/models/*"],
+        "@routes/*": ["src/routes/*"],
+        "@config/*": ["config/*"],
+        "@types/*": ["types/*"],
+        "@utils/*": ["utils/*"],
+        "@middlewares/*": ["middlewares/*"],
+        "@services/*": ["services/*"]
+      }
+    },
+    "include": ["src/**/*", "src/types/**/*.d.ts"],
+    "exclude": ["node_modules", "dist", "tests"]
+}
